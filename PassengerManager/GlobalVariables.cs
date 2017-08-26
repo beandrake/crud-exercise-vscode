@@ -5,6 +5,6 @@ namespace PassengerManager
 {
   public static class GlobalVariables
   {
-    public static List<Equipment> Equipment { get; set; } = new List<Equipment>();
+    public static List<Passenger> PassengerList { get; set; } = new List<Passenger>();
   }
 }

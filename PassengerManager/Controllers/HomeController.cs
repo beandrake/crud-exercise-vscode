@@ -13,27 +13,13 @@ namespace PassengerManager.Controllers
     {
         public IActionResult Index()
         {
-            return View(Equipment.GetAll());
+            return View(Passenger.GetAll());
         }
 
-        public IActionResult Create(string EquipmentName)
+        public IActionResult Create(string FirstName, string LastName, string PhoneNumber)
         {
-            Equipment.Create(EquipmentName);
+            Passenger.Create(FirstName, LastName, PhoneNumber);
             return RedirectToAction("Index");
-        }
-
-        public IActionResult About()
-        {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
-        }
-
-        public IActionResult Contact()
-        {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
         }
 
         public IActionResult Error()

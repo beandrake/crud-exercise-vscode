@@ -1,22 +1,35 @@
-﻿@model List<PassengerManager.Models.Equipment>
-<h2>Equipment:</h2>
+﻿<link rel="stylesheet" type="text/css" href="../../wwwroot/css/site.css">
 
-<form asp-controller="Home" asp-action="Create" class="form-inline mbm">
-  <div class="form-group">
-    <input class="form-control" name="EquipmentName" />
-    <input class="btn" type="submit" value="Add Equipment" />
-  </div>
-</form>
+@model List<PassengerManager.Models.Passenger>
+<h2>Passenger Manager</h2>
 
-<h4>Equipment:</h4>
+<h3>Editing Functions</h3>
 
-<div>
-  <ul>
+<div class="form-group">
+  <h4>Add Passenger</h4>
+  <form asp-controller="Home" asp-action="Create">
+    <label>First Name</label> <input class="form-control" name="FirstName" />
+    <label>Last Name</label> <input class="form-control" name="LastName" />
+    <label>Phone Name</label> <input class="form-control" name="PhoneNumber" />
+    <input class="btn" type="submit" value="Add Passenger" />
+  </form>
+</div>
+
+<div class="passenger-list">
+  <h3>Passengers:</h3>
+  <table>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th> 
+      <th>Phone Number</th>
+    </tr>
     @foreach(var item in Model)
     {
-      <li>
-        <label>@item.Name</label>
-        </li>
+      <tr>
+        <th>@item.getFirstName()</th>
+        <th>@item.getLastName()</th> 
+        <th>@item.getPhoneNumber()</th>
+      </tr>
     }
-  </ul>
+  </table>
 </div>
