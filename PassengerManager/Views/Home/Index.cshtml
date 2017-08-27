@@ -1,20 +1,39 @@
-﻿<link rel="stylesheet" type="text/css" href="../../wwwroot/css/site.css">
+﻿<!-- NOTE: check Views/_ViewStart to see if this page is being loaded by default -->
 
+<!-- 
+    the Views/Home/Index.cshtml file is linked by default to:
+      Models/Home.cs and Controllers/HomeController.cs
+    because of the shared "Home"
+-->
+
+<!--  kind of like declaring a variable "Model" that is a List<*> (see https://stackoverflow.com/questions/17752749/different-between-model-and-model#17752875 )-->
 @model List<PassengerManager.Models.Passenger>
+
+
 <h2>Passenger Manager</h2>
 
-<h3>Editing Functions</h3>
 
-<div class="form-group">
-  <h4>Add Passenger</h4>
-  <form asp-controller="Home" asp-action="Create">
-    <label>First Name</label> <input class="form-control" name="FirstName" />
-    <label>Last Name</label> <input class="form-control" name="LastName" />
-    <label>Phone Name</label> <input class="form-control" name="PhoneNumber" />
-    <input class="btn" type="submit" value="Add Passenger" />
-  </form>
+
+<div>
+  <h3>Editing Functions</h3>
+
+  <!-- Add Passenger Form -->
+  <div class="form-group">
+    <h4>Add Passenger</h4>
+    <form asp-controller="Home" asp-action="Create">
+      <label>First Name</label> <input class="form-control" name="FirstName" />
+      <label>Last Name</label> <input class="form-control" name="LastName" />
+      <label>Phone Name</label> <input class="form-control" name="PhoneNumber" />
+      <input class="btn" type="submit" value="Add Passenger" />
+    </form>
+  </div>
+
+
+
+
 </div>
 
+<!-- displays the current list of Passengers -->
 <div class="passenger-list">
   <h3>Passengers:</h3>
   <table>
@@ -23,12 +42,13 @@
       <th>Last Name</th> 
       <th>Phone Number</th>
     </tr>
+    <!-- "declaration" of Model near top of file -->
     @foreach(var item in Model)
     {
       <tr>
-        <th>@item.getFirstName()</th>
-        <th>@item.getLastName()</th> 
-        <th>@item.getPhoneNumber()</th>
+        <td>@item.getFirstName()</td>
+        <td>@item.getLastName()</td> 
+        <td>@item.getPhoneNumber()</td>
       </tr>
     }
   </table>
